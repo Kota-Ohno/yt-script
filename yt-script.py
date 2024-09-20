@@ -18,6 +18,11 @@ CLIENT_SECRETS_FILE = os.getenv('CLIENT_SECRET_FILE')
 API_KEY = os.getenv('YOUTUBE_API_KEY')
 SCOPES = ["https://www.googleapis.com/auth/youtube.readonly"]
 
+if not CLIENT_SECRETS_FILE and not API_KEY:
+    print("エラー: 認証情報が見つかりません。.envファイルを確認してください。")
+    print("CLIENT_SECRET_FILE または YOUTUBE_API_KEY が正しく設定されているか確認してください。")
+    sys.exit(1)
+
 # 認証方法選択
 def select_auth_method():
     while True:
