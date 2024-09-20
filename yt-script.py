@@ -13,6 +13,7 @@ API_SERVICE_NAME = "youtube"
 API_VERSION = "v3"
 
 # 認証情報読み込み
+NUM_OF_RESULTS = os.getenv('NUM_OF_RESULTS')
 CLIENT_SECRETS_FILE = os.getenv('CLIENT_SECRET_FILE')
 API_KEY = os.getenv('YOUTUBE_API_KEY')
 SCOPES = ["https://www.googleapis.com/auth/youtube.readonly"]
@@ -40,7 +41,7 @@ def search_videos(youtube, query):
         q=query,
         type='video',
         part='id,snippet',
-        maxResults=10
+        maxResults=NUM_OF_RESULTS
     )
     response = request.execute()
 
