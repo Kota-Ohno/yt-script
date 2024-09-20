@@ -70,6 +70,9 @@ def display_results(videos, query):
         channel = video['snippet']['channelTitle']
         views = video['statistics']['viewCount']
         likes = video['statistics']['likeCount']
+        comments = video['statistics']['commentCount']
+        tags = video['snippet'].get('tags') # タグが存在しない場合、getメソッドでないとエラーが発生する
+        tags_str = ', '.join(tags) if tags else "タグなし"
         
         # 動画情報表示
         print(f"タイトル: {title}")
@@ -77,6 +80,8 @@ def display_results(videos, query):
         print(f"投稿者: {channel}")
         print(f"再生数: {views}")
         print(f"高評価数: {likes}")
+        print(f"コメント数: {comments}")
+        print(f"タグ: {tags_str}")
         print("---")
 
 def main():

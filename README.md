@@ -3,7 +3,7 @@
 ## 要件
 - コマンドラインで検索キーワードを引数にとるスクリプト
 - Youtubeの動画を検索キーワードをもとに検索し、リストで出力する
-- 出力する項目はタイトル・投稿日時・投稿者・再生数・高評価数
+- 出力する項目はタイトル・投稿日時・投稿者・再生数・高評価数・コメント数
 - 検索にはYouTube Data Apiを用いる
 - pythonにて実装
 
@@ -14,6 +14,8 @@
 - https://developers.google.com/youtube/v3/guides/authentication?hl=ja
 - https://dev.classmethod.jp/articles/oauth2-youtube-data-api/
 - https://stackoverflow.com/questions/75602866/google-oauth-attributeerror-installedappflow-object-has-no-attribute-run-co
+- https://qiita.com/tanitanistudio/items/7526d2d28626b1b5af2a
+- https://note.nkmk.me/python-dict-get/
 
 
 ## 操作方法
