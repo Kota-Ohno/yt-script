@@ -72,3 +72,4 @@ python yt-script.py keyword1 keyword2 ...
 ```
 認証方法を選択してください(1: API KEY, 2: OAuth): 
 ```
+- (2: OAuthの場合)ブラウザに認証のためのページが表示されるので、OAuth 2.0の認証情報を作成したアカウントを選択し、認証を行う。
