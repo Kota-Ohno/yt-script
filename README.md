@@ -6,6 +6,7 @@
 - 出力する項目はタイトル・投稿日時・投稿者・再生数・高評価数・コメント数
 - 検索にはYouTube Data Apiを用いる
 - pythonにて実装
+- 出力結果をtxtファイルとして保存
 
 ## 参考としたサイトのURL
 - https://developers.google.com/youtube/v3/docs/search?hl=ja

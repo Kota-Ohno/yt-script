@@ -60,35 +60,70 @@ def search_videos(youtube, query):
 
     return videos_response['items']
 
-# 検索結果表示
-def display_results(videos, query):
+# 動画情報の成型
+def format_video_info(video):
+    title = video['snippet']['title']
+    published_at_str = video['snippet']['publishedAt']
+    published_at = datetime.fromisoformat(published_at_str.replace('Z', '+00:00'))
+    jst = timezone(timedelta(hours=9))
+    published_at_jst = published_at.astimezone(jst)
+    formatted_date = published_at_jst.strftime('%Y年%m月%d日 %H時%M分')
+    channel = video['snippet']['channelTitle']
+    views = video['statistics']['viewCount']
+    likes = video['statistics']['likeCount']
+    comments = video['statistics']['commentCount']
+    tags = video['snippet'].get('tags')
+    tags_str = ', '.join(tags) if tags else "タグなし"
+    
+    return {
+        "title": title,
+        "date": formatted_date,
+        "channel": channel,
+        "views": views,
+        "likes": likes,
+        "comments": comments,
+        "tags": tags_str
+    }
+
+# 出力
+def process_results(videos, query, save_to_file=False):
     print("---")
     print(f"検索キーワード: {query}")
     print("---")
+
+    filename = None
+    if save_to_file:
+        now = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"search_results_{now}.txt"
+        file = open(filename, "w", encoding="utf-8")
+        file.write(f"検索キーワード: {query}\n")
+        file.write("---\n")
+
     for video in videos:
-        # 動画情報抽出
-        title = video['snippet']['title']
-        published_at_str = video['snippet']['publishedAt']
-        published_at = datetime.fromisoformat(published_at_str.replace('Z', '+00:00'))
-        jst = timezone(timedelta(hours=9))
-        published_at_jst = published_at.astimezone(jst)
-        formatted_date = published_at_jst.strftime('%Y年%m月%d日 %H時%M分')
-        channel = video['snippet']['channelTitle']
-        views = video['statistics']['viewCount']
-        likes = video['statistics']['likeCount']
-        comments = video['statistics']['commentCount']
-        tags = video['snippet'].get('tags') # タグが存在しない場合、getメソッドでないとエラーが発生する
-        tags_str = ', '.join(tags) if tags else "タグなし"
-        
-        # 動画情報表示
-        print(f"タイトル: {title}")
-        print(f"投稿日時: {formatted_date}")
-        print(f"投稿者: {channel}")
-        print(f"再生数: {views}")
-        print(f"高評価数: {likes}")
-        print(f"コメント数: {comments}")
-        print(f"タグ: {tags_str}")
+        video_info = format_video_info(video)
+        # 表示処理
+        print(f"タイトル: {video_info['title']}")
+        print(f"投稿日時: {video_info['date']}")
+        print(f"投稿者: {video_info['channel']}")
+        print(f"再生数: {video_info['views']}")
+        print(f"高評価数: {video_info['likes']}")
+        print(f"コメント数: {video_info['comments']}")
+        print(f"タグ: {video_info['tags']}")
         print("---")
+        # 書き込み処理
+        if save_to_file:
+            file.write(f"タイトル: {video_info['title']}\n")
+            file.write(f"投稿日時: {video_info['date']}\n")
+            file.write(f"投稿者: {video_info['channel']}\n")
+            file.write(f"再生数: {video_info['views']}\n")
+            file.write(f"高評価数: {video_info['likes']}\n")
+            file.write(f"コメント数: {video_info['comments']}\n")
+            file.write(f"タグ: {video_info['tags']}\n")
+            file.write("---\n")
+
+    if save_to_file:
+        file.close()
+        print(f"検索結果を {filename} に保存しました。")
 
 def main():
     # 引数処理
@@ -106,8 +141,8 @@ def main():
     # 検索
     videos = search_videos(youtube, query)
     
-    # 表示
-    display_results(videos, query)
+    # 結果の処理（表示とファイル保存）
+    process_results(videos, query, save_to_file=True)
 
 if __name__ == "__main__":
     main()
