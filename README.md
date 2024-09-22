@@ -8,17 +8,6 @@
 - pythonにて実装
 - 出力結果をtxtファイルとして保存
 
-## 参考としたサイトのURL
-- https://developers.google.com/youtube/v3/docs/search?hl=ja
-- https://developers.google.com/youtube/v3/code_samples/code_snippets?hl=ja
-- https://github.com/googleapis/google-api-python-client
-- https://developers.google.com/youtube/v3/guides/authentication?hl=ja
-- https://dev.classmethod.jp/articles/oauth2-youtube-data-api/
-- https://stackoverflow.com/questions/75602866/google-oauth-attributeerror-installedappflow-object-has-no-attribute-run-co
-- https://qiita.com/tanitanistudio/items/7526d2d28626b1b5af2a
-- https://note.nkmk.me/python-dict-get/
-
-
 ## 操作方法
 ### 1. python3環境を準備する
 #### 1.1 python3のダウンロードとインストール
@@ -74,3 +63,13 @@ python yt-script.py keyword1 keyword2 ...
 認証方法を選択してください(1: API KEY, 2: OAuth): 
 ```
 - (2: OAuthの場合)ブラウザに認証のためのページが表示されるので、OAuth 2.0の認証情報を作成したアカウントを選択し、認証を行う。
+
+## 参考としたサイトのURL
+- https://developers.google.com/youtube/v3/docs/search?hl=ja
+- https://developers.google.com/youtube/v3/code_samples/code_snippets?hl=ja
+- https://github.com/googleapis/google-api-python-client
+- https://developers.google.com/youtube/v3/guides/authentication?hl=ja
+- https://dev.classmethod.jp/articles/oauth2-youtube-data-api/
+- https://stackoverflow.com/questions/75602866/google-oauth-attributeerror-installedappflow-object-has-no-attribute-run-co
+- https://qiita.com/tanitanistudio/items/7526d2d28626b1b5af2a
+- https://note.nkmk.me/python-dict-get/
