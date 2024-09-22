@@ -20,11 +20,33 @@
 
 ## 操作方法
 ### 1. python3環境を準備する
-- python公式：[https://www.python.org/downloads/]から、Python version 3.xxのファイルをダウンロードし、インストールすることでpython3の環境を構築する
-- 以下のコマンドをターミナルで入力し、必要なライブラリをインストールする
-
+#### 1.1 python3のダウンロードとインストール
+- python公式：[https://www.python.org/downloads/]から、Python version 3.xxのファイル(例：Python 3.12.6)をダウンロードし、インストールすることでpython3の環境を構築する
+#### 1.2 仮想環境の構築
+- スクリプトと同階層でターミナルを起動し、以下のコマンドを実行して仮想環境を作成する。
 ```
-pip install google-api-python-client python-dotenv google-auth-oauthlib python-dotenv datetime
+python -m venv venv
+```
+#### 1.3(windowsの場合) スクリプトの実行ポリシーの変更
+- windowsのPowerShellは既定ではスクリプトの実行が許可されていないため、以下のコマンドで一時的にポリシーを変更する
+```
+Set-ExecutionPolicy RemoteSigned -Scope Process
+```
+#### 1.4 仮想環境の有効化
+##### 1.4.1 windowsの場合
+- 以下のコマンドで仮想環境を有効化する
+```
+venv\Scripts\activate
+```
+##### 1.4.2 macOS/Linuxの場合
+- 以下のコマンドで仮想環境を有効化する
+```
+source venv/bin/activate
+```
+#### 1.5 必要なライブラリのインストール
+- 以下のコマンドをターミナルで入力し、必要なライブラリをインストールする
+```
+pip install -r requirements.txt
 ```
 ### 2.認証情報の用意
 以下のいずれかの認証情報を用意する
