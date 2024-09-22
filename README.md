@@ -34,7 +34,7 @@ pip install google-api-python-client python-dotenv google-auth-oauthlib python-d
 ```
 YOUTUBE_API_KEY="APIキーの文字列"
 ```
-#### 2.2 Oauth 2.0の場合
+#### 2.2 OAuth 2.0の場合
 - [https://dev.classmethod.jp/articles/oauth2-youtube-data-api/]を参考に、OAuth 2.0の認証情報を作成したうえで、認証情報のjsonファイルをダウンロードする
 - yt-script.pyと同階層のディレクトリにjsonファイルを配置し、.envファイルの以下の部分にファイル名を記述する
 ```
@@ -48,5 +48,5 @@ python yt-script.py keyword1 keyword2 ...
 ```
 - 以下のメッセージが表示されるので、用意した認証方法に合わせて1か2を入力する
 ```
-認証方法を選択してください(1: API Key, 2: OAuth): 
+認証方法を選択してください(1: API KEY, 2: OAuth): 
 ```
