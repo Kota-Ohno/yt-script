@@ -22,7 +22,7 @@
 ## 操作方法
 ### 1. python3環境を準備する
 #### 1.1 python3のダウンロードとインストール
-- python公式：[https://www.python.org/downloads/]から、Python version 3.xxのファイル(例：Python 3.12.6)をダウンロードし、インストールすることでpython3の環境を構築する
+- python公式：[https://www.python.org/downloads/] から、Python version 3.xxのファイル(例：Python 3.12.6)をダウンロードし、インストールすることでpython3の環境を構築する
 #### 1.2 仮想環境の構築
 - スクリプトと同階層でターミナルを起動し、以下のコマンドを実行して仮想環境を作成する。
 ```
@@ -52,13 +52,13 @@ pip install -r requirements.txt
 ### 2.認証情報の用意
 以下のいずれかの認証情報を用意する
 #### 2.1 YouTube API KEYの場合
-- [https://engineering.webstudio168.jp/2022/09/youtube-data-api-getapikeys/]を参考に、YouTube API KEYを作成する
+- [https://engineering.webstudio168.jp/2022/09/youtube-data-api-getapikeys/] を参考に、YouTube API KEYを作成する
 - .envファイルの以下の部分にAPIキーの文字列を記述する
 ```
 YOUTUBE_API_KEY="APIキーの文字列"
 ```
 #### 2.2 OAuth 2.0の場合
-- [https://dev.classmethod.jp/articles/oauth2-youtube-data-api/]を参考に、OAuth 2.0の認証情報を作成したうえで、認証情報のjsonファイルをダウンロードする
+- [https://dev.classmethod.jp/articles/oauth2-youtube-data-api/] を参考に、OAuth 2.0の認証情報を作成したうえで、認証情報のjsonファイルをダウンロードする
 - yt-script.pyと同階層のディレクトリにjsonファイルを配置し、.envファイルの以下の部分にファイル名を記述する
 ```
 CLIENT_SECRET_FILE="ファイル名"
